@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* perspective: 1000px; */
+    /* One option is to have the perspective property on the card container */
+}
+.card {
+    width: 300px;
+    height: 350px;
+    position: relative;
+    background-color: transparent;
+    transform-style: preserve-3d;
+    transition: 1s ease-in-out;
+    /* background-color: aliceblue; */
+}
+.front-face, .back-face{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    backface-visibility: hidden;
+}
+.front-face{
+    background-image: linear-gradient(45deg, rgb(255, 130, 0), rgb(255, 255, 0));
+}
+.back-face{
+    color: #fff;
+    background-image: linear-gradient(45deg, rgb(140, 40, 200), rgb(240, 130, 200));
+    transform: rotateY(180deg)
+}
+.card:hover {
+    transform: perspective(500px) rotateY(-180deg);
+    /* The other option is applying a perspective transform to the card itself. */
+}
